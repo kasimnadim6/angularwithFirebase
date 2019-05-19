@@ -16,6 +16,7 @@ export class EmployeeComponent implements OnInit {
   constructor(private _service: EmployeeService,
     private _firestore: AngularFirestore,
     private _toastr: ToastrService) { }
+    
 
   ngOnInit() {
     this.resetForm();
