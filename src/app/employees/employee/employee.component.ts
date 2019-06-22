@@ -13,7 +13,7 @@ import { ToastrService } from 'ngx-toastr';
 })
 export class EmployeeComponent implements OnInit {
 
-  constructor(private _service: EmployeeService,
+  constructor(public _service: EmployeeService,
     private _firestore: AngularFirestore,
     private _toastr: ToastrService) { }
     
