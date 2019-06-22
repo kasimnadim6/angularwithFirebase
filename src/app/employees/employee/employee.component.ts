@@ -14,17 +14,17 @@ import { ToastrService } from 'ngx-toastr';
 export class EmployeeComponent implements OnInit {
 
   constructor(public _service: EmployeeService,
-    private _firestore: AngularFirestore,
-    private _toastr: ToastrService) { }
-    
+              private _firestore: AngularFirestore,
+              private _toastr: ToastrService) { }
 
   ngOnInit() {
     this.resetForm();
   }
 
   resetForm(form?: NgForm) {
-    if (form != null)
+    if (form != null) {
       form.resetForm();
+    }
     this._service.formData = {
       id: null,
       fullName: '',
@@ -42,8 +42,7 @@ export class EmployeeComponent implements OnInit {
       this._firestore.collection('employees').add(data);
       this._toastr.success('Submitted Succesfully!', 'EMP. Register');
       this.resetForm(form);
-    }
-    else {
+    } else {
       this._firestore.doc('employees/' + form.value.id).update(data);
       this._toastr.info('Updated Succesfully!', 'EMP. Register');
       this.resetForm(form);
